@@ -127,10 +127,10 @@ class SurveyController extends Controller
                 'longitude' => $request->longitude
             ]);
 
-            $data = Survey::where('id', '=', $id)->get();
+            $survey->save();
 
-            if ($data) {
-                return array('message' => 'created');
+            if ($survey) {
+                return array('message' => 'edited');
             } else {
                 return array('message' => 'failed');
             }
@@ -151,7 +151,7 @@ class SurveyController extends Controller
         $data = $survey->delete();
 
         if ($data) {
-            return array('message' => 'created');
+            return array('message' => 'deleted');
         } else {
             return array('message' => 'failed');
         }
